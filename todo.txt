@@ -1,0 +1,60 @@
+✔️ - Done
+⭕ - In Progress
+❌ - Not Started
+
+WHEN I load the login page
+✔️ - THEN I am presented with form inputs for username and password
+
+WHEN I enter my valid username and password
+✔️ - THEN I am authenticated using JSON Web Tokens (JWT) and redirected to the main Kanban board page
+
+WHEN I enter an invalid username or password
+✔️ - THEN I am presented with an error message indicating that the credentials are incorrect
+
+WHEN I successfully log in
+✔️ - THEN a JWT is stored securely in the client's local storage for subsequent authenticated requests
+
+WHEN I log out
+✔️ - THEN the JWT is removed from the client's local storage and I am redirected to the login page
+
+WHEN I try to access the Kanban board page without being authenticated
+✔️ - THEN I am redirected to the login page
+
+WHEN I remain inactive for a defined period
+✔️ - THEN my session expires, the JWT is invalidated, and I am redirected to the login page upon my next action
+
+Technical Acceptance Criteria: 40%
+✔️ - Satisfies all of the preceding acceptance criteria plus the following:
+
+✔️ - Application server API verifies login requests, creates and signs tokens, and validates that API requests for tickets and users include an authenticated token.
+
+✔️ - Application's client stores tokens in localStorage and passes tokens to the server API with each request.
+
+❌ -   Application must be deployed to Render.
+
+Deployment: 32%
+❌ - Application deployed at live URL.
+
+❌ - Application loads with no errors.
+
+❌ - Application GitHub URL submitted.
+
+❌ - GitHub repository contains application code.
+
+Application Quality: 15%
+✔️ - Application user experience is intuitive and easy to navigate.
+
+✔️ - Application user interface style is clean and polished.
+
+✔️ - Application resembles the mock-up functionality provided in the Challenge instructions.
+
+Repository Quality: 13%
+❌ - Repository has a unique name.
+
+✔️ - Repository follows best practices for file structure and naming conventions.
+
+✔️ - Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+
+❌ - Repository contains multiple descriptive commit messages.
+
+❌ - Repository contains quality README file with description, screenshot, and link to deployed application.
