@@ -33,6 +33,7 @@ const Navbar = () => {
           <li className='nav-item'>
             <button type='button' onClick={() => {
               auth.logout();
+              window.location.assign('/login');
             }}>Logout</button>
           </li>
         )
