@@ -6,6 +6,7 @@ const Navbar = () => {
   const [ loginCheck, setLoginCheck ] = useState(false);
 
   const logout = (e: React.MouseEvent<HTMLElement>) => {
+    console.log('logout');
     e.preventDefault();
     auth.logout();
     window.location.assign('/login');
@@ -37,7 +38,7 @@ const Navbar = () => {
           </li>
         ) : (
           <li className='nav-item'>
-            <button type='button' onClick={() => {logout}}>Logout</button>
+            <button type='button' onClick={logout}>Logout</button>
           </li>
         )
       }
