@@ -5,6 +5,12 @@ import auth from '../utils/auth';
 const Navbar = () => {
   const [ loginCheck, setLoginCheck ] = useState(false);
 
+  const logout = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    auth.logout();
+    window.location.assign('/login');
+  }
+
   const checkLogin = () => {
     if(auth.loggedIn()) {
       setLoginCheck(true);
@@ -31,10 +37,7 @@ const Navbar = () => {
           </li>
         ) : (
           <li className='nav-item'>
-            <button type='button' onClick={() => {
-              auth.logout();
-              window.location.assign('/login');
-            }}>Logout</button>
+            <button type='button' onClick={() => {logout}}>Logout</button>
           </li>
         )
       }
