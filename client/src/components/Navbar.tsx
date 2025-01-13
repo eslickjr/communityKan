@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../utils/auth';
 
 const Navbar = () => {
+  const navigate = useNavigate();
 
   const [ loginCheck, setLoginCheck ] = useState(false);
 
@@ -10,6 +11,7 @@ const Navbar = () => {
     console.log('logout');
     e.preventDefault();
     auth.logout();
+    navigate('/login');
   }
 
   const checkLogin = () => {

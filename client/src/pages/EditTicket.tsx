@@ -15,6 +15,7 @@ const EditTicket = () => {
 
   if (auth.isTokenExpired(auth.getToken())) {
     auth.logout();
+    navigate('/login');
   }
 
   const fetchTicket = async (ticketId: TicketData) => {

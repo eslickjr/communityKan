@@ -23,6 +23,7 @@ const CreateTicket = () => {
 
   if (auth.isTokenExpired(auth.getToken())) {
     auth.logout();
+    navigate('/login');
   }
 
   const [users, setUsers] = useState<UserData[] | undefined>([]);

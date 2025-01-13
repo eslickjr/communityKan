@@ -1,5 +1,5 @@
 import { useEffect, useState, useLayoutEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { retrieveTickets, deleteTicket } from '../api/ticketAPI';
 import ErrorPage from './ErrorPage';
@@ -12,6 +12,7 @@ import auth from '../utils/auth';
 const boardStates = ['Todo', 'In Progress', 'Done'];
 
 const Board = () => {
+  const navigate = useNavigate();
 
   const [tickets, setTickets] = useState<TicketData[]>([]);
   const [error, setError] = useState(false);
@@ -36,6 +37,7 @@ const Board = () => {
   const deleteIndvTicket = async (ticketId: number) : Promise<ApiMessage> => {
     if (auth.isTokenExpired(auth.getToken())) {
       auth.logout();
+      navigate('/login');
       return Promise.reject('Token expired');
     }
 
