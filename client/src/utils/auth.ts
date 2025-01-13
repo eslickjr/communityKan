@@ -1,6 +1,9 @@
 import { JwtPayload, jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 class AuthService {
+  const navigate = useNavigate();
+
   getProfile() {
     // TODO: return the decoded token
     // Get the token from the getToken method
@@ -45,14 +48,14 @@ class AuthService {
     // TODO: set the token to localStorage
     // TODO: redirect to the home page
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    this.navigate('/');
   }
 
   logout() {
     // TODO: remove the token from localStorage
     // TODO: redirect to the login page
     localStorage.removeItem('id_token');
-    window.location.assign('/login');
+    this.navigate('/login');
   }
 }
 

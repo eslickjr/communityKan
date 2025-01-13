@@ -7,15 +7,15 @@ import { TicketData } from '../interfaces/TicketData';
 import auth from '../utils/auth';
 
 const EditTicket = () => {
-  if (auth.isTokenExpired(auth.getToken())) {
-    auth.logout();
-    window.location.assign('/login');
-  }
 
   const [ticket, setTicket] = useState<TicketData | undefined>();
 
   const navigate = useNavigate();
   const { state } = useLocation();
+
+  if (auth.isTokenExpired(auth.getToken())) {
+    auth.logout();
+  }
 
   const fetchTicket = async (ticketId: TicketData) => {
     try {

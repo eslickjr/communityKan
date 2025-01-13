@@ -8,11 +8,6 @@ import { retrieveUsers } from '../api/userAPI';
 import auth from '../utils/auth';
 
 const CreateTicket = () => {
-  if (auth.isTokenExpired(auth.getToken())) {
-    auth.logout();
-    window.location.assign('/login');
-  }
-
   const [newTicket, setNewTicket] = useState<TicketData | undefined>(
     {
       id: 0,
@@ -25,6 +20,10 @@ const CreateTicket = () => {
   );
 
   const navigate = useNavigate();
+
+  if (auth.isTokenExpired(auth.getToken())) {
+    auth.logout();
+  }
 
   const [users, setUsers] = useState<UserData[] | undefined>([]);
 

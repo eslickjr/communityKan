@@ -12,6 +12,7 @@ import auth from '../utils/auth';
 const boardStates = ['Todo', 'In Progress', 'Done'];
 
 const Board = () => {
+
   const [tickets, setTickets] = useState<TicketData[]>([]);
   const [error, setError] = useState(false);
   const [loginCheck, setLoginCheck] = useState(false);
@@ -35,7 +36,6 @@ const Board = () => {
   const deleteIndvTicket = async (ticketId: number) : Promise<ApiMessage> => {
     if (auth.isTokenExpired(auth.getToken())) {
       auth.logout();
-      window.location.assign('/login');
       return Promise.reject('Token expired');
     }
 

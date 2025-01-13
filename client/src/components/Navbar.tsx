@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import auth from '../utils/auth';
 
 const Navbar = () => {
+
   const [ loginCheck, setLoginCheck ] = useState(false);
 
   const logout = (e: React.MouseEvent<HTMLElement>) => {
     console.log('logout');
     e.preventDefault();
     auth.logout();
-    window.location.assign('/login');
   }
 
   const checkLogin = () => {
