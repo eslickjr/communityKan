@@ -2,7 +2,7 @@ import { JwtPayload, jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 
 class AuthService {
-  const navigate = useNavigate();
+  navigate = useNavigate();
 
   getProfile() {
     // TODO: return the decoded token
